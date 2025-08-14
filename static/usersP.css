@@ -5,12 +5,20 @@
     background-color: var(--mainColor);
 }
 
+@font-face {
+    font-family: "vazirmatn";
+    src: url(../static/Vazirmatn-VariableFont_wght.ttf) format("truetype");
+}
+
+*{
+    font-family: "Vazirmatn", sans-serif;
+}
+
 button{
     cursor: pointer;
 }
 
 body{
-    font-family: 'vazirmatn';
     background-color: #fafcff;
     padding: 0%;
     margin: 0%;
@@ -44,6 +52,7 @@ body{
     flex-direction: row;
     align-items: center;
     padding-right: 20px;
+    font-weight: 100;
 }
 
 

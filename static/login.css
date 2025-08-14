@@ -5,12 +5,20 @@
     background-color: var(--mainColor);
 }
 
+@font-face {
+    font-family: "vazirmatn";
+    src: url(../static/Vazirmatn-VariableFont_wght.ttf) format("truetype");
+}
+
+*{
+    font-family: "Vazirmatn", sans-serif;
+}
+
 input[type="submit"]{
     cursor: pointer;
 }
 
 body{
-    font-family: 'vazirmatn';
     background-color: #fafcff;
     padding: 0%;
     margin: 0%;
@@ -135,7 +143,6 @@ label{
     margin-right: -1%;
     border: 1px solid #bbbaba;
     border-radius: 15px;
-    font-family: 'vazirmatn';
 }
 
 .inputText:focus{
@@ -145,7 +152,6 @@ label{
 
 #submit{
     align-self: self-end;
-    font-family: 'vazirmatn';
     width: 50%;
     margin: 0%;
     margin-top: 6%;
