@@ -1,0 +1,219 @@
+:root{
+    --mainColor: #ff8f30
+}
+::selection{
+    background-color: var(--mainColor);
+}
+
+input[type="submit"]{
+    cursor: pointer;
+}
+
+body{
+    font-family: 'vazirmatn';
+    background-color: #fafcff;
+    padding: 0%;
+    margin: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#main{
+    background-color: #ffffff;
+    width: 70%;
+    height: 80%;
+    border-radius: 25px;
+    box-shadow: 0px 0px 60px 1px #00000013;
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 0%;
+    margin: 0%;
+}
+
+#infoBox{
+    margin: 2%;
+    border-radius: 25px;
+    position: relative;
+    width: 80%;
+    background-image: url('B.jpg');
+    background-position: center;
+    background-size:cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    }
+
+
+#svgBox{
+    width: 90px;
+    height: 90px;
+    padding: 0%;
+    margin: 0%;
+    background-color: #ffffff;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 28%;
+
+}
+
+#infoText{
+    color: #ffffff;
+    font-weight: 900;}
+
+#devName{
+    padding: 0%;
+    margin: 0%;
+    margin-top: auto;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-weight: 200;
+}
+
+#loginBox{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 45%;
+
+
+}
+
+#loginText{
+    text-align: right;
+    width: 100%;
+    padding: 0%;
+    margin: 0%;
+    margin-right: 25%;
+    margin-top: 30%;
+    
+}
+
+#subLogin{
+    text-align: right;
+    width: 100%;
+    padding: 0%;
+    margin: 0%;
+    margin-top: 1%;
+    margin-right: 25%;
+    font-size: 14px;
+    font-weight: 400;
+        
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    padding: 0%;
+    margin-left: 30%;
+    margin-right: 34%;
+    margin-top: 2%;
+    width: 80%;
+}
+
+label{
+    font-weight: 500;
+    margin: 0%;
+    padding: 0%;
+    margin-bottom: 2%;
+    margin-top: 3%;
+}
+
+
+.inputText{
+    transition: border-color 0.2s linear;
+    padding: 4%;
+    margin: 0%;
+    margin-right: -1%;
+    border: 1px solid #bbbaba;
+    border-radius: 15px;
+    font-family: 'vazirmatn';
+}
+
+.inputText:focus{
+    outline: 0px;
+    border: 1px solid var(--mainColor);
+}
+
+#submit{
+    align-self: self-end;
+    font-family: 'vazirmatn';
+    width: 50%;
+    margin: 0%;
+    margin-top: 6%;
+    padding: 4%;
+    background-color: var(--mainColor);
+    border-radius: 15px;
+    border: 0px;
+    color: #ffffff;
+    font-weight: 900;
+
+}
+
+#ToolBar{
+    display: flex;
+    flex-direction: column;
+    padding: 2px;
+    gap: 50px;
+    align-items: center;
+    justify-content:center;
+    overflow: hidden;
+    filter: blur(10px);
+}
+
+#ToolBarHold{
+    background-color: #ffffff;
+    width: 3.5%;
+    height: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.082) ;
+    border-radius: 15px;
+    box-shadow: 0px 0px 60px 1px #00000013;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 20px;
+    padding: 0px;
+    gap: 0px;
+    align-items: center;
+    justify-content:center;
+    overflow: hidden;
+
+}
+
+svg{
+    width: 25px;
+}
+
+.btnST{
+    margin: 0%;
+    background-color: rgba(255, 255, 255, 0);
+    border: 0;
+    border-radius: 5px;
+}
+
+#warning{
+    display: inline;
+    transform: rotate(-90deg);
+    position: absolute;
+    bottom: 42%;
+    color: #000000;
+    font-weight: 900;
+
+}
+
+#warning-icon{
+    position: absolute;
+    bottom: 55%;
+    color: #da2c2c;
+    font-weight: 900;
+    padding: 0;
+    margin: 0px 0.2% 0px 0px;
+
+}
