@@ -1,4 +1,4 @@
 ENDPOINT = ""
 NAME = ""
 SECRET = ""
-ACCESS_TOKEN = ""
+ACCESS_TOKEN = "" 
