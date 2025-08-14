@@ -19,6 +19,7 @@ button{
 }
 
 body{
+    font-family: 'vazirmatn';
     background-color: #fafcff;
     padding: 0%;
     margin: 0%;
@@ -26,6 +27,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
+    font-weight: 100;
 }
 
 #main{
@@ -33,6 +35,7 @@ body{
     width: 70%;
     height: 80%;
     border-radius: 25px;
+    border: 1px solid #00000013;
     box-shadow: 0px 0px 60px 1px #00000013;
     display: flex;
     flex-direction: column;
@@ -42,19 +45,14 @@ body{
 
 #header{
     padding: 0.5%;
-    margin: 0%;
-    border: 1px solid #00000013;
-    border-radius: 25px;
-    border-bottom-left-radius: 0% ;
-    border-bottom-right-radius: 0% ;
+    margin: 0;
+    border-bottom: 1px solid #00000013;
     height: 10%;
     display: flex;
     flex-direction: row;
     align-items: center;
     padding-right: 20px;
-    font-weight: 100;
 }
-
 
 #ToolBar{
     display: flex;
@@ -69,7 +67,7 @@ body{
     background-color: #ffffff;
     width: 3.5%;
     height: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.082) ;
+    border: 1px solid #00000015 ;
     border-radius: 15px;
     box-shadow: 0px 0px 60px 1px #00000013;
     display: flex;
@@ -103,3 +101,45 @@ svg{
 h1{
     font-size: 20px;
 }
+
+#tableHolder{
+    height: 100%;
+    overflow: auto;
+    padding: 10px;
+}
+
+#usersTable{
+    width: 100%;
+    background-color: #fafcff;
+    border-radius: 10px;
+    border: 1px solid #00000013;
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    font-weight: 300;
+}
+
+#tableHeadItem{
+    border-bottom: 1px solid #00000013;
+    padding-bottom: 6px;
+    background-color: var();
+}
+
+tbody tr:nth-child(odd){
+    background-color: #ffffff;
+}
+
+#NumItem{
+    font-weight: 800;
+}
+
+.circle{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    vertical-align: middle;
+    margin-left: 10px;
+    
+}
+
