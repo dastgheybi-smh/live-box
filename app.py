@@ -9,17 +9,17 @@ from datetime import timedelta
 app = Flask(__name__)
 app.permanent_session_lifetime = timedelta(days=5)
 
-ENDPOINT = ""
-NAME = ""
-SECRET = ""
-ACCESS_TOKEN = ""
-is_authenticated = False
-client = client_(
-    "s3",
-    endpoint_url=ENDPOINT,
-    aws_access_key_id=ACCESS_TOKEN,
-    aws_secret_access_key=SECRET
-)
+# ENDPOINT = ""
+# NAME = ""
+# SECRET = ""
+# ACCESS_TOKEN = ""
+# is_authenticated = False
+# client = client_(
+#     "s3",
+#     endpoint_url=ENDPOINT,
+#     aws_access_key_id=ACCESS_TOKEN,
+#     aws_secret_access_key=SECRET
+# )
 
 COLORS = [
     "#908F49",
@@ -52,4 +52,4 @@ def index():
         return redirect("/login")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()

@@ -37,7 +37,7 @@ body{
     border-radius: 25px;
     position: relative;
     width: 80%;
-    background-image: url('static/images/B.jpg');
+    background-image: url('/static/images/B.jpg');
     background-position: center;
     background-size:cover;
     display: flex;

@@ -64,7 +64,7 @@ def render(filename:str, context=None) -> str:
     if context is None:
         context = {}
 
-    with open(filename) as f:
+    with open(filename, encoding="utf-8") as f:
         string = f.read()
     return render_from_string(string, context)
 
