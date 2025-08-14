@@ -44,10 +44,6 @@ TEMP_DIR = join(BASE_DIR, "temp")
 def login():
     return render("templates/login.html")
 
-@app.route("/sign-up", methods=["GET", "POST"])
-def signup():
-    return render("templates/sign-up.html")
-
 @app.route("/", methods=["GET", "POST"])
 def index():
     if "username" in session:
