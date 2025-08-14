@@ -1,0 +1,105 @@
+:root{
+    --mainColor: #ff8f30
+}
+::selection{
+    background-color: var(--mainColor);
+}
+
+@font-face {
+    font-family: "vazirmatn";
+    src: url(../static/Vazirmatn-VariableFont_wght.ttf) format("truetype");
+}
+
+*{
+    font-family: "Vazirmatn", sans-serif;
+}
+
+button{
+    cursor: pointer;
+}
+
+body{
+    background-color: #fafcff;
+    padding: 0%;
+    margin: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#main{
+    background-color: #ffffff;
+    width: 70%;
+    height: 80%;
+    border-radius: 25px;
+    box-shadow: 0px 0px 60px 1px #00000013;
+    display: flex;
+    flex-direction: column;
+    padding: 0%;
+    margin: 0%;
+}
+
+#header{
+    padding: 0.5%;
+    margin: 0%;
+    border: 1px solid #00000013;
+    border-radius: 25px;
+    border-bottom-left-radius: 0% ;
+    border-bottom-right-radius: 0% ;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 20px;
+    font-weight: 100;
+}
+
+
+#ToolBar{
+    display: flex;
+    flex-direction: column;
+    padding: 2px;
+    gap: 50px;
+    align-items: center;
+    justify-content:center;
+}
+
+#ToolBarHold{
+    background-color: #ffffff;
+    width: 3.5%;
+    height: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.082) ;
+    border-radius: 15px;
+    box-shadow: 0px 0px 60px 1px #00000013;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 20px;
+    padding: 0px;
+    gap: 0px;
+    align-items: center;
+    justify-content:center;
+    overflow: hidden;
+
+}
+
+svg{
+    width: 25px;
+}
+
+.btnST{
+    margin: 0%;
+    background-color: #ffffff00;
+    border: 0;
+    border-radius: 5px;
+}
+
+#selectedIcon{
+    color: var(--mainColor);
+    cursor: default;
+}
+
+
+h1{
+    font-size: 20px;
+}
