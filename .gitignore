@@ -1,2 +1,4 @@
 .installer
 .idea
+__pycache__
+secret.py
