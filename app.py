@@ -3,23 +3,19 @@ from flask import Flask, request, redirect, session
 from os.path import join
 from pytml import render
 from datetime import timedelta
+from secret import *
 
 # -- Meta Data --
 
 app = Flask(__name__)
 app.permanent_session_lifetime = timedelta(days=5)
 
-# ENDPOINT = ""
-# NAME = ""
-# SECRET = ""
-# ACCESS_TOKEN = ""
-# is_authenticated = False
-# client = client_(
-#     "s3",
-#     endpoint_url=ENDPOINT,
-#     aws_access_key_id=ACCESS_TOKEN,
-#     aws_secret_access_key=SECRET
-# )
+client = client_(
+    "s3",
+    endpoint_url=ENDPOINT,
+    aws_access_key_id=ACCESS_TOKEN,
+    aws_secret_access_key=SECRET
+)
 
 COLORS = [
     "#908F49",

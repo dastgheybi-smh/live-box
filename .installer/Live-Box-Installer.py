@@ -9,3 +9,10 @@ bucket = input(f"{Fore.LIGHTWHITE_EX}Enter the server {Fore.LIGHTBLUE_EX}Bucket 
 access = input(f"{Fore.LIGHTWHITE_EX}Enter the bucket {Fore.LIGHTYELLOW_EX}Access Key{Fore.CYAN}: ")
 secret = input(f"{Fore.LIGHTWHITE_EX}Enter the bucket {Fore.LIGHTRED_EX}Secret Key{Fore.CYAN}: ")
 
+with open("../secret.py", "w") as f:
+    f.write(
+        f"""ENDPOINT = "{endpoint}"
+NAME = "{bucket}"
+SECRET = "{secret}"
+ACCESS_TOKEN = "{access}" """
+    )
