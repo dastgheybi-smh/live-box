@@ -47,5 +47,9 @@ def index():
     else:
         return redirect("/login")
 
+@app.route('/register')
+def register():
+    return render("templates/register.html")
+
 if __name__ == "__main__":
     app.run()
