@@ -7,7 +7,7 @@
 
 @font-face {
     font-family: "vazirmatn";
-    src: url(../static/Vazirmatn-VariableFont_wght.ttf) format("truetype");
+    src: url(../static/Vazirmatn-VariableFont_wght.ttf) format("truetype");  
 }
 
 *{
@@ -105,32 +105,33 @@ h1{
 #tableHolder{
     height: 100%;
     overflow: auto;
-    padding: 10px;
+    padding: 2%;
 }
 
 #usersTable{
     width: 100%;
-    background-color: #fafcff;
+    background-color: #ffffff;
     border-radius: 10px;
     border: 1px solid #00000013;
     text-align: center;
     border-collapse: separate;
-    border-spacing: 0 10px;
-    font-weight: 300;
+    border-spacing: 0;
+    overflow: hidden;
 }
 
 #tableHeadItem{
-    border-bottom: 1px solid #00000013;
-    padding-bottom: 6px;
-    background-color: var();
+    padding: 12px 10px;
+    background-color: var(--mainColor);
+    color: #ffffff;
 }
 
-tbody tr:nth-child(odd){
-    background-color: #ffffff;
+tbody tr:nth-child(even){
+    background-color: #f7f7f7;
 }
 
-#NumItem{
-    font-weight: 800;
+#tableInfoItem{
+    padding: 12px 10px;
+    font-weight: 300;
 }
 
 .circle{
@@ -140,6 +141,7 @@ tbody tr:nth-child(odd){
     border-radius: 100%;
     vertical-align: middle;
     margin-left: 10px;
+    border: 1.5px solid #00000059;
     
 }
 
