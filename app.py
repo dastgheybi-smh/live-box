@@ -4,6 +4,7 @@ from os.path import join
 from pytml import render
 from datetime import timedelta
 from secret import *
+from jsonsql import S3DB
 
 # -- Meta Data --
 
@@ -30,7 +31,10 @@ BASE_DIR = "C:\\ProgramData\\Live code"
 TEMP_DIR = join(BASE_DIR, "temp")
 
 # -- Database Settings --
-#todo: make db
+
+db = S3DB("live-box/db.json", client, NAME)
+db.create_table("user", ["username", "password", "last_online", "userprofile_id"])
+db.create_table("userprofile", ["color"])
 
 # -- Backend --
 
