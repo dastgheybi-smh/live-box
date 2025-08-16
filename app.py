@@ -5,6 +5,7 @@ from pytml import render
 from datetime import timedelta
 from secret import *
 from jsonsql import S3DB
+from random import choice
 
 # -- Meta Data --
 
@@ -53,6 +54,12 @@ def index():
 
 @app.route('/register')
 def register():
+    if request.method == "POST":
+        user_data_id = db.table("user_data").create(color=choice(COLORS)).id
+        username = request.form["userNameI"]
+        password = request.form["userPassI"]
+        db.table("user").create(username=username, password=password, userprofile_id=user_data_id)
+        return redirect("/login")
     return render("templates/register.html")
 
 if __name__ == "__main__":
