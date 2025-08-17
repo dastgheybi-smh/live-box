@@ -6,10 +6,14 @@ from datetime import timedelta
 from secret import *
 from jsonsql import S3DB
 from random import choice
+from os import urandom
+from time import gmtime
 
 # -- Meta Data --
 
 app = Flask(__name__)
+app.secret_key = urandom(200)
+
 app.permanent_session_lifetime = timedelta(days=5)
 
 client = client_(
@@ -43,22 +47,31 @@ db.create_table("userprofile", ["color"])
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    return render("templates/login.html")
+    if request.method == "POST":
+        username = request.form["userNameI"]
+        password = request.form["userPassI"]
+        user = db.table("user")
+        if len(user.filter(username=username, password=password)) == 1:
+            session["username"] = username
+            return redirect("/")
+        else:
+            return render("templates/login.html", {"code": 'alert("نام کاربری یا رمز عبور اشتباه وارد شده")'})
+    return render("templates/login.html", {"code": ''})
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/")
 def index():
     if "username" in session:
         return "You are logged in"
     else:
         return redirect("/login")
 
-@app.route('/register')
+@app.route('/register', methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        user_data_id = db.table("user_data").create(color=choice(COLORS)).id
+        user_data_id = db.table("userprofile").create(color=choice(COLORS)).id
         username = request.form["userNameI"]
         password = request.form["userPassI"]
-        db.table("user").create(username=username, password=password, userprofile_id=user_data_id)
+        db.table("user").create(username=username, password=password, last_online=list(gmtime()[:6]), userprofile_id=user_data_id)
         return redirect("/login")
     return render("templates/register.html")
 
