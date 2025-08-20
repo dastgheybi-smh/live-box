@@ -7,7 +7,7 @@ from secret import *
 from jsonsql import S3DB
 from random import choice
 from os import urandom
-from time import gmtime
+from time import gmtime, time
 
 # -- Meta Data --
 
@@ -53,6 +53,7 @@ def login():
         user = db.table("user")
         if len(user.filter(username=username, password=password)) == 1:
             session["username"] = username
+            user.get(username=username, password=password).update(last_online="آنلاین")
             return redirect("/")
         else:
             return render("templates/login.html", {"code": 'alert("نام کاربری یا رمز عبور اشتباه وارد شده")'})
@@ -71,7 +72,7 @@ def register():
         user_data_id = db.table("userprofile").create(color=choice(COLORS)).id
         username = request.form["userNameI"]
         password = request.form["userPassI"]
-        db.table("user").create(username=username, password=password, last_online=list(gmtime()[:6]), userprofile_id=user_data_id)
+        db.table("user").create(username=username, password=password, last_online=time(), userprofile_id=user_data_id)
         return redirect("/login")
     return render("templates/register.html")
 
