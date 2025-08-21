@@ -66,6 +66,15 @@ def index():
     else:
         return redirect("/login")
 
+@app.route('/leave')
+def leave():
+    if "username" in session:
+        username = session["username"]
+        user = db.table("user")
+        user = user.get(username=username)
+        user.update(last_online=time())
+    return redirect("/login")
+
 @app.route('/register', methods=["GET", "POST"])
 def register():
     if request.method == "POST":
