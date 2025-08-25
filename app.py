@@ -1,13 +1,12 @@
 from boto3 import client as client_
-from flask import Flask, request, redirect, session
+from flask import Flask, request, redirect, session, render_template
 from os.path import join
-from pytml import render
 from datetime import timedelta
 from secret import *
 from jsonsql import S3DB
 from random import choice
 from os import urandom
-from time import gmtime, time
+from time import gmtime, time, strftime
 
 # -- Meta Data --
 
@@ -56,8 +55,8 @@ def login():
             user.get(username=username, password=password).update(last_online="آنلاین")
             return redirect("/")
         else:
-            return render("templates/login.html", {"code": 'alert("نام کاربری یا رمز عبور اشتباه وارد شده")'})
-    return render("templates/login.html", {"code": ''})
+            return render_template("login.html", alert=True, var="نام کاربری یا رمز عبور اشتباه وارد شده")
+    return render_template("login.html", alert=False)
 
 @app.route("/")
 def index():
@@ -65,6 +64,23 @@ def index():
         return "You are logged in"
     else:
         return redirect("/login")
+
+@app.route('/users')
+def users():
+    if not "username" in session:
+        return redirect("/")
+    users = db.table("user").filter()
+    users_new = []
+    for user in users:
+        users_new.append(user.data)
+    users = []
+    for user in users_new:
+        if type(user['last_online']) == str:
+            user['last_online'] = 'آنلاین'
+        elif type(user['last_online']) == int:
+            user['last_online'] = strftime('%Y-%m-%d %H:%M:%S', gmtime(user['last_online']))
+        users.append(user)
+    return render_template("UsersP.html", username=session["username"], users=users)
 
 @app.route('/leave')
 def leave():
@@ -83,7 +99,7 @@ def register():
         password = request.form["userPassI"]
         db.table("user").create(username=username, password=password, last_online=time(), userprofile_id=user_data_id)
         return redirect("/login")
-    return render("templates/register.html")
+    return render_template("register.html")
 
 if __name__ == "__main__":
     app.run()

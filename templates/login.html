@@ -38,8 +38,9 @@
                 <input type="password" name="userPassI" class="inputText" placeholder="رمز را وارد کنید">
                 <input type="submit" value="ورود" id="submit">
             </form>
+            <p>اکانت ندارید؟ <a href="/register">ثبت نام</a> کنید.</p>
         </div>
     </div>
-    <script>{%cal; (code)$}</script>
+    <script>{% if alert %}alert('{{ var }}');{% endif %}</script>
 </body>
  
