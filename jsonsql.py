@@ -47,6 +47,7 @@ class DBObject:
         for k, v in kwargs.items():
             translate = self._columns.index(k)
             self._value[self.id][translate] = v
+        self._table._update(self)
 
     def __len__(self):
         return len(self._value)
@@ -112,16 +113,15 @@ class Table:
             raise ValueError(f"get() must return exactly 1 value, but {len(value)} found")
         return value[0]
 
-    def update(self, obj, **kwargs) -> None:
-        if len(obj) != 1:
-            raise ValueError(f"update() must update exactly 1 value, but {len(obj)} given")
+    def update(self, obj:DBObject, **kwargs) -> None:
         obj.update(**kwargs)
         self.db._connect()
-        current = len(self.db.db[self.name].keys())
         self.db.db[self.name].update(obj.db_row)
-        now = len(self.db.db[self.name].keys())
-        if current != now:
-            raise ValueError(f"update() must update value, not create it")
+        self.db._save()
+
+    def _update(self, obj:DBObject) -> None:
+        self.db._connect()
+        self.db.db[self.name].update(obj.db_row)
         self.db._save()
 
 class DB:
