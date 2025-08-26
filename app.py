@@ -56,12 +56,14 @@ def login():
             return redirect("/")
         else:
             return render_template("login.html", alert=True, var="نام کاربری یا رمز عبور اشتباه وارد شده")
+    if "username" in session:
+        return redirect("/")
     return render_template("login.html", alert=False)
 
 @app.route("/")
 def index():
     if "username" in session:
-        return "You are logged in"
+        return redirect("/users")
     else:
         return redirect("/login")
 
@@ -77,7 +79,7 @@ def users():
     for user in users_new:
         if type(user['last_online']) == str:
             user['last_online'] = 'آنلاین'
-        elif type(user['last_online']) == int:
+        elif type(user['last_online']) == float :
             user['last_online'] = strftime('%Y-%m-%d %H:%M:%S', gmtime(user['last_online']))
         users.append(user)
     return render_template("UsersP.html", username=session["username"], users=users)
@@ -88,8 +90,9 @@ def leave():
         username = session["username"]
         user = db.table("user")
         user = user.get(username=username)
-        user.update(last_online=time())
-    return redirect("/login")
+        user.update(last_online=time()+12600)
+        session.pop("username")
+    return redirect("/")
 
 @app.route('/register', methods=["GET", "POST"])
 def register():

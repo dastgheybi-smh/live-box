@@ -86,10 +86,11 @@ svg{
 }
 
 .btnST{
-    margin: 0%;
+    margin: 0;
     background-color: #ffffff00;
     border: 0;
     border-radius: 5px;
+    color: black;
 }
 
 #selectedIcon{
